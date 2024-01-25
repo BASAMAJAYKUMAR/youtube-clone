@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>YouTube</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="youtube.css">
+	<link rel="icon" type="image/icon" href="Resources/favicon_32x32.png" sizes="32x32">
+	<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+	
+</head>
+<body>
+
+	<!--***********START OF HEADER **********-->
+	<header class = "header-container stick">
+		<div class = "container">
+			<div class = "guide-button-box">
+				<span class="iconify hamburger" data-icon="ci:hamburger" data-inline="false"></span>
+			</div>
+			<div class = "logo">	
+				<a href="youtube.html"><img class = "logo-img" src = "data:image/png;base64,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" alt="logo"></a>
+				<span class = "country-code">IN</span>
+			</div>
+		</div>
+		<div class = "search-container">
+			<input type="text" placeholder="Search" name="search">
+      		<button type="submit">
+      			<span class="iconify search-btn" data-icon="ant-design:search-outlined" data-inline="false"></span>
+      		</button>
+		</div>
+		<div class = "user-d">
+			<button class = "user-btn">
+				<a href="#"><span class="iconify" data-icon="bx:bxs-video-plus" data-inline="false"></span></a>
+			</button>
+			<button class = "user-btn">
+				<a href="#"><span class="iconify" data-icon="gg:menu-grid-r" data-inline="false"></span></a>
+			</button>
+			<button class = "user-btn">
+				<a href="#"><span class="iconify" data-icon="fa-solid:bell" data-inline="false"></span></a>
+			</button>
+			<button>
+				<a href="#"><span class="iconify user" data-icon="carbon:user-avatar-filled" data-inline="false"></span></a>
+			</button>
+		</div>
+	</header>
+
+	<!--**********END OF HEADER**********-->
+
+	<!--**********START OF SIDEBAR**********-->
+
+		<div class = "sidebar">
+			<div class = "sidebar-categories">
+				<div class = "sidebar-category selected">
+					<span class="iconify user-icon selected-img" data-icon="ci:home-alt-fill" data-inline="false"></span>
+					<span>Home</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="ic:baseline-explore" data-inline="false"></span>
+					<span>Explore</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="ic:baseline-subscriptions" data-inline="false"></span>
+					<span>Subscriptions</span>
+				</div>
+			</div>
+			
+			<hr/>
+
+			<div class = "sidebar-categories">
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="ic:baseline-video-library" data-inline="false"></span>
+					<span>Library</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="ic:baseline-history" data-inline="false"></span>
+					<span>History</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="ant-design:play-square-outlined" data-inline="false"></span>
+					<span>Your videos</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="ic:baseline-watch-later" data-inline="false"></span>
+					<span>Watch later</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="bx:bxs-like" data-inline="false"></span>
+					<span>Liked videos</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="ic:outline-expand-more" data-inline="false"></span>
+					<span>Show more</span>
+				</div>
+			</div>
+
+			<hr/>
+
+			<div class = "subscription-categories">
+				<span class = "head-text">
+					SUBSCRIPTIONS
+				</span>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+					<span>Channel 1</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+					<span>Channel 2</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+					<span>Channel 3</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+					<span>Channel 4</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+					<span>Channel 5</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+					<span>Channel 6</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+					<span>Channel 7</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify" data-icon="ic:outline-expand-more" data-inline="false"></span>
+					<span>Show 40 more</span>
+				</div>
+			</div>
+
+			<hr/>
+
+			<div class = "subscription-categories">
+				<span class = "head-text">
+					MORE FROM YOUTUBE
+				</span>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="ant-design:youtube-filled" data-inline="false"></span>
+					<span>YouTube Premium</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="ic:sharp-local-movies" data-inline="false"></span>
+					<span>Movies</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="simple-icons:youtubegaming" data-inline="false"></span>
+					<span>Gaming</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="fluent:live-24-filled" data-inline="false"></span>
+					<span>Live</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="icon-park-outline:hanger-two" data-inline="false"></span>
+					<span>Fashion & Beauty</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="ant-design:bulb-filled" data-inline="false"></span>
+					<span>Learing</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="icomoon-free:trophy" data-inline="false"></span>
+					<span>Sports</span>
+				</div>
+			</div>
+
+			<hr/>
+
+			<div class = "sidebar-categories">
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="fluent:settings-28-filled" data-inline="false"></span>
+					<span>Settings</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="ci:flag-fill" data-inline="false"></span>
+					<span>Report history</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="ci:help-circle" data-inline="false"></span>				
+					<span>Help</span>
+				</div>
+				<div class = "sidebar-category">
+					<span class="iconify user-icon" data-icon="ic:baseline-feedback" data-inline="false"></span>
+					<span>Send Feedback</span>
+				</div>
+			</div>
+
+			<hr/>
+
+			<div class = "sidebar-bottom-info">
+				<a href="/">About</a>
+				<a href="/">Press</a>
+				<a href="/">Copyright</a><br>
+				<a href="/">Contact us</a>
+				<a href="/">Creators</a><br>
+				<a href="/">Advertise</a>
+				<a href="/">Developers</a><br><br>
+				<a href="/">Terms</a>
+				<a href="/">Privacy</a>
+				<a href="/">Policy & Safety</a><br>
+				<a href="/">How YouTube works</a><br>
+				<a href="/">Test new features</a><br><br>
+				<span>© 2021 Google LLC</span>
+			</div>
+
+			<div class = "sidebar-category-sml">
+				<span class="iconify user-icon selected-img" data-icon="ci:home-alt-fill" data-inline="false"></span>
+				<span>Home</span>
+			</div>
+			<div class = "sidebar-category-sml">
+				<span class="iconify user-icon" data-icon="ic:baseline-explore" data-inline="false"></span>
+				<span>Explore</span>
+			</div>
+			<div class = "sidebar-category-sml">
+				<span class="iconify user-icon" data-icon="ic:baseline-subscriptions" data-inline="false"></span>
+				<span>Subscriptions</span>
+			</div>
+			<div class = "sidebar-category-sml">
+				<span class="iconify user-icon" data-icon="ic:baseline-video-library" data-inline="false"></span>
+				<span>Library</span>
+			</div>
+		</div>
+
+	<!--**********END OF SIDEBAR**********-->
+
+	<!--**********START OF HEADER NAVBAR**********-->
+
+	<div class = "header-navbar">
+		<button class = "navbar-element first active">
+			<a href="#">All</a>
+		</button>
+		<button class = "navbar-element">
+			Music
+		</button>
+		<button class = "navbar-element">
+			Wildlife
+		</button>
+		<button class = "navbar-element">
+			Education
+		</button>
+		<button class = "navbar-element">
+			Recently Uploaded
+		</button>
+		<button class = "navbar-element">
+			Live
+		</button>
+		<button class = "navbar-element">
+			Tamil
+		</button>
+		<button class = "navbar-element">
+			T-Series
+		</button>
+		<button class = "navbar-element">
+			Cricket
+		</button>
+		<button class = "navbar-element">
+			Sports
+		</button>
+		<button class = "navbar-element">
+			Eating
+		</button>
+		<button class = "navbar-element">
+			Laughter
+		</button>
+		<button class = "navbar-element">
+			Music
+		</button>
+		<button class = "navbar-element">
+			Wildlife
+		</button>
+		<button class = "navbar-element">
+			Education
+		</button>
+		<button class = "navbar-element">
+			Recently Uploaded
+		</button>
+		<button class = "navbar-element">
+			Music
+		</button>
+		<button class = "navbar-element">
+			Tamil
+		</button>
+	</div>
+
+	<!--**********END OF HEADER NAVBAR**********-->
+
+	<!--**********START OF BOTTOM NAVBAR**********-->
+
+	<div class = "btm-nav">
+		<div>
+			<button class = "btm-btn">
+				<span class="iconify user-icon selected-img" data-icon="ci:home-alt-fill" data-inline="false"></span>
+			</button>
+			<a href="#"><span>Home</span></a>
+		</div>	
+		<div>
+			<button class = "btm-btn">
+				<span class="iconify user-icon" data-icon="ic:round-local-fire-department" data-inline="false"></span>
+			</button>
+			<a href="#"><span>Trending</span></a>
+		</div>		
+		<div>
+			<button class = "btm-btn">
+				<span class="iconify user-icon" data-icon="ic:baseline-subscriptions" data-inline="false"></span>
+			</button>
+			<a href="#"><span>Subscriptions</span></a>
+		</div>		
+		<div>
+			<button class = "btm-btn">
+				<span class="iconify user-icon" data-icon="ic:baseline-video-library" data-inline="false"></span>
+			</button>
+			<a href="#"><span>Library</span></a>
+		</div>			
+	</div>
+
+	<!--**********END OF BOTTOM NAVBAR**********-->
+
+	<!--**********START OF MAIN CONTENT**********-->
+
+	<div class = "main-content">
+		<div class = "videos">
+			<div class = "videos-container">
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<a href="https://youtu.be/VbSJJsb6dLE?si=0hn7T2JvuLrVZwCS"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFgebB3bUQOCiblC3YWu1xejvZ72MT9d-CNw&usqp=CAU" alt = "" /></a>
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<a href=""><span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span></a>
+						</div>
+
+						<div class = "title">
+							<a href="https://youtu.be/VbSJJsb6dLE?si=0hn7T2JvuLrVZwCS"><h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3></a>
+							<a href="https://youtu.be/VbSJJsb6dLE?si=0hn7T2JvuLrVZwCS">vijayatalks</a>
+							<a href="https://youtu.be/VbSJJsb6dLE?si=0hn7T2JvuLrVZwCS"><span>1.2M views • 1 month ago</span></a>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<a href="https://youtu.be/9qEMbbNGAGI?si=ELlo4Fa-OxbPjFbE"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQrD4r-hE_mAQwm7fqDqsDx5f9w8P645u7ZQ&usqp=CAU" alt = "" /></a>
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<a href="https://youtu.be/9qEMbbNGAGI?si=ELlo4Fa-OxbPjFbE"><h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3></a>
+							<a href="https://youtu.be/9qEMbbNGAGI?si=ELlo4Fa-OxbPjFbE">foodvlogger</a>
+							<a href="https://youtu.be/9qEMbbNGAGI?si=ELlo4Fa-OxbPjFbE"><span>1K views • 8 months ago</span></a>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<a href="https://youtu.be/QYhiYR9n5Ug?si=j47JFfj0sqko1Yj8"><img src="https:encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4SgLnzoomzah0f2VshIgskdv-xAWx3e2tvw&usqp=CAU" alt = "" /></a>
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<a href="https://youtu.be/QYhiYR9n5Ug?si=j47JFfj0sqko1Yj8"><h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3></a>
+							<a href="https://youtu.be/QYhiYR9n5Ug?si=j47JFfj0sqko1Yj8">Tastyfood</a>
+							<a href="https://youtu.be/QYhiYR9n5Ug?si=j47JFfj0sqko1Yj8"><span>1.9K views • 2 years ago</span></a>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<a href=""><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXkWs8UUDK8mMnz1fsjH2fia5Vvy0wJgPyvA&usqp=CAU" alt = "" /></a>
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<a href="https://youtu.be/ZulFjBvUEd4?si=0bw34oZdnCq-smUc"><h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3></a>
+							<a href="https://youtu.be/ZulFjBvUEd4?si=0bw34oZdnCq-smUc">Javascript</a>
+							<a href="https://youtu.be/ZulFjBvUEd4?si=0bw34oZdnCq-smUc"><span>800 views • 2 days ago</span></a>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRELd6_pHMlDc1PDlDRbrY5NUn2MY5GGlxvoA&usqp=CAU" alt = "" />
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+							<a href="">AWS</a>
+							<span>1.9M views • 9 years ago</span>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-1jmZdYYlOvlBWA7JKKrD1X0m9_f5cSnsBg&usqp=CAU" alt = "" />
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+							<a href="">Cloud</a>
+							<span>2.9k views • 1 hour ago</span>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPKb_ZoM8he2sRC1GqPPvUOrRIFPT3jYj1EQ&usqp=CAU" alt = "" />
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+							<a href="">devops</a>
+							<span>2.3M views • 11 months ago</span>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvwx2_-UoFRrenmmhA0sboYFLUT1cw--ph4Q&usqp=CAU" alt = "" />
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+							<a href="">linux</a>
+							<span>30K views • 1 week ago</span>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<img src="https://img.youtube.com/vi/PpXUTUXU7Qc/maxresdefault.jpg" alt = "" />
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+							<a href="">Channel 1</a>
+							<span>10M views • 3 Months Ago</span>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOV9cbjTfUcmYigGFUoU-KyfRBlk1eoUcu2Q&usqp=CAU" alt = "" />
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+							<a href="">Channel 1</a>
+							<span>10M views • 3 Months Ago</span>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwhkiLimbwWNCE8F4MvFAl7Mc5CcTHEjbV9bbYRNGLSfaCKz-yt_jPEC1GepuSj69akTk&usqp=CAU" alt = "" />
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+							<a href="">Channel 1</a>
+							<span>10M views • 3 Months Ago</span>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7qZEe_Ih0uQN-jMLbiQDy8u4I74WuBg5LQg&usqp=CAU" alt = "" />
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+							<a href="">Channel 1</a>
+							<span>10M views • 3 Months Ago</span>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY4asqGgZ-0LvLRTqUh8YXEJeoqBMNPjn3ag&usqp=CAU" alt = "" />
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+							<a href="">Channel 1</a>
+							<span>10M views • 3 Months Ago</span>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdsW0b_ShC77DXd1UuNx18IQfQfps3HJ_RaQ&usqp=CAU" alt = "" />
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+							<a href="">Channel 1</a>
+							<span>10M views • 3 Months Ago</span>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKdWyJnPDYc3GTqf-pZ1Iv2DYB7XU7R4PMzw&usqp=CAU" alt = "" />
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+							<a href="">Channel 1</a>
+							<span>10M views • 3 Months Ago</span>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvvt4kGtvFEgv7cux85VlWkyseCaf2LKpLvQ&usqp=CAU" alt = "" />
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+							<a href="">Channel 1</a>
+							<span>10M views • 3 Months Ago</span>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPBYURGpdfEdo81CUt-wS4Rbyvaw0FAkulgAEYVDniPLRuEZQTiwVG8A9dWRILRUp-5b4&usqp=CAU" alt = "" />
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+							<a href="">Channel 1</a>
+							<span>10M views • 3 Months Ago</span>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYm2X-JC3XwyxkG2D5l8_9LlvDfigNrApg5Q&usqp=CAU" alt = "" />
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+							<a href="">Channel 1</a>
+							<span>10M views • 3 Months Ago</span>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrTVnjklS2V3pRewzweD-p8lnK7plFn-KlRw&usqp=CAU" alt = "" />
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+							<a href="">Channel 1</a>
+							<span>10M views • 3 Months Ago</span>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2x1Hyz1_zaFWCv2bfs2Qvt9I0P2Nd_ZX67g&usqp=CAU" alt = "" />
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+							<a href="">Channel 1</a>
+							<span>10M views • 3 Months Ago</span>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJWjcOKmy0aogv95J3Ue4txMjJp3fM7I2olQ&usqp=CAU" alt = "" />
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+							<a href="">Channel 1</a>
+							<span>10M views • 3 Months Ago</span>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4iGGuPTzzDV9vHnAhqj6eW4WMUDKskgpWJg&usqp=CAU" alt = "" />
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+							<a href="">Channel 1</a>
+							<span>10M views • 3 Months Ago</span>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN88pJrMy0jWt_kSGU9vGnRDK_DvYvAwjDU5rGXhNGM02U6ezzhxNz5b1nQFu09t-V4I8&usqp=CAU" alt = "" />
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+							<a href="">Channel 1</a>
+							<span>10M views • 3 Months Ago</span>
+						</div>
+					</div>
+				</div>
+
+				<div class = "video">
+					<div class = "video-thumbnail">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgX2rbz1z-U29PD10pgZcBuATGpqvmQz-wkA&usqp=CAU" alt = "" />
+					</div>					
+
+					<div class = "video-details">
+						<div class = "author">
+							<span class="iconify video-icon" data-icon="carbon:user-avatar-filled" data-inline="false"></span>
+						</div>
+
+						<div class = "title">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+							<a href="">Channel 1</a>
+							<span>10M views • 3 Months Ago</span>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+
+	<!--**********END OF MAIN CONTENT**********-->
+	<script type="text/javascript" src = "script.js"></script>
+</body>
+</html>
